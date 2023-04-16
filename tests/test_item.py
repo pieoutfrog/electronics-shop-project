@@ -44,3 +44,13 @@ def test_instantiate_from_csv():
     assert item2.name == 'Телевизор'
     assert item2.price == 1000
     assert item2.quantity == 3
+
+
+def test_str(return_date):
+    """Тест для метода str"""
+    assert str(return_date) == 'Стиралка'
+
+
+def test_repr(return_date):
+    """Тест для метода repr"""
+    assert repr(return_date) == "Item('Стиралка', 40000, 50)"

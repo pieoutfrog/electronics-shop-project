@@ -65,3 +65,10 @@ class Item:
         int_number = int(number)
         return int_number
 
+    def __repr__(self):
+        """Метод вывода для разраба"""
+        class_name = self.__class__.__name__
+        return f"{class_name}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.__name}"
