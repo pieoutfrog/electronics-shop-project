@@ -1,4 +1,6 @@
 import csv
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -46,11 +48,19 @@ class Item:
         """
         self.price = self.price * self.pay_rate
 
+    def __repr__(self):
+        """метод вывода"""
+        class_name = self.__class__.__name__
+        return f"{class_name}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.__name}"
+
     @classmethod
     def instantiate_from_csv(cls):
         """Открытие файла csv"""
         cls.all = []
-        with open("items.csv") as f:
+        with open("items.csv", encoding="utf8") as f:
             reader = csv.reader(f)
             next(reader)
             for row in reader:
@@ -65,10 +75,4 @@ class Item:
         int_number = int(number)
         return int_number
 
-    def __repr__(self):
-        """Метод вывода для разраба"""
-        class_name = self.__class__.__name__
-        return f"{class_name}('{self.__name}', {self.price}, {self.quantity})"
 
-    def __str__(self):
-        return f"{self.__name}"
