@@ -36,12 +36,12 @@ def test_instantiate_from_csv():
     Item.instantiate_from_csv()
     assert len(Item.all) == 5
     item1 = Item.all[0]
-    assert item1.name == 'Вентилятор'
+    assert item1.name == 'Смартфон'
     assert item1.price == 100
     assert item1.quantity == 1
 
     item2 = Item.all[1]
-    assert item2.name == 'Телевизор'
+    assert item2.name == 'Ноутбук'
     assert item2.price == 1000
     assert item2.quantity == 3
 

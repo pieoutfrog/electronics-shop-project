@@ -60,7 +60,7 @@ class Item:
     def instantiate_from_csv(cls):
         """Открытие файла csv"""
         cls.all = []
-        with open("items.csv", encoding="utf8") as f:
+        with open("items.csv", 'r', encoding='Windows-1251', newline='') as f:
             reader = csv.reader(f)
             next(reader)
             for row in reader:
@@ -75,4 +75,10 @@ class Item:
         int_number = int(number)
         return int_number
 
+    def __add__(self, other):
+        if not isinstance(other, Item):
+            raise ValueError('Складывать можно только объекты Item и дочерние от них.')
+        elif not isinstance(self, Item):
+            raise ValueError('Складывать можно только объекты Item и дочерние от них.')
 
+        return self.quantity + other.quantity
